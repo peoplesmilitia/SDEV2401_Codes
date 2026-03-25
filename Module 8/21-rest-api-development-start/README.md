@@ -60,6 +60,15 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
     ]
 }
+
+if you get error try with this one:
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny"
+    ]
+}
 ```
 
 ### 2. Let's take a look at the models we have in the `workouts_app`.
@@ -75,7 +84,7 @@ Serializers in DRF do two things:
 1. They convert complex data types, such as Django model instances, into native Python datatypes that can then be easily rendered into JSON, XML, or other content types.
 2. They also provide deserialization, allowing parsed data to be converted back into complex types, after first validating the incoming data.
 
-Let's create serializers for our `Exercise` model explicitly.
+Let's create serializers for our `Exercise` model explicitly. Inside the app create serializers.py and paste the code.
 
 ```python
 from rest_framework import serializers
@@ -98,7 +107,7 @@ Let's talk about what's going on here.
 
 ### 4. Let's create a `get` endpoint for our `APIView` named `ExerciseAPIView` to handle the logic for our API endpoints related to exercises.
 
-We need the view logic to handle `GET` requests to list all of the exercises in our database. We can use the `ExerciseSerializer` to serialize the data and return it as a JSON response.
+We need the view logic to handle `GET` requests to list all of the exercises in our database. We can use the `ExerciseSerializer` to serialize the data and return it as a JSON response. Add that inside your views.py.
 
 ```python
 
@@ -169,6 +178,9 @@ Let's make sure we follow the same steps as we've done in the course
 Open postman and make a `GET` request to `http://localhost:8000/api/v1/exercises/`. You should see a JSON response with the list of exercises you added through the admin.
 It should look like this:
 ![get request](images/get_request.gif)
+
+donwload link: https://www.postman.com/downloads/
+Create an annount there first.
 
 Woo! You've created our first get endpoint with Django REST Framework!
 
