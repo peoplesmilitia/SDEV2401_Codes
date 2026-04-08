@@ -383,12 +383,14 @@ We're also going to add a `UserSerializer` to include the user's information in 
 
 ```python
 # we're not overriding the default user model, so we can just import the user model from django.contrib.auth.models
-from django.contrib.auth.models import User
 from django.conf import settings
+from django.contrib.auth.models import User
+# user serializer to only include public information.
+
 # user serializer to only include public information.
 class UserReadOnlySerializer(serializers.ModelSerializer):
     class Meta:
-        model = settings.AUTH_USER_MODEL
+        model = User
         fields = ['id', 'username', 'email']
 
 class WorkoutLogReadOnlySerializer(serializers.ModelSerializer):
@@ -413,6 +415,7 @@ class WorkoutLogReadOnlySerializer(serializers.ModelSerializer):
             # include the user field in the read only serializer
             'user'
         ]
+        depth=1
         # if you add the depth option to the serializer's Meta class,
         # it will automatically include the related data for foreign key fields in the response. In this case, it will include the user's information in the response when viewing workouts.
 
