@@ -576,7 +576,7 @@ This is really common pattern in DRF to have the list view return only the authe
 ```python
 # ... other imports and viewsets ...
 class WorkoutLogAPIView(APIView):
-    permission_classes = [IsAuthenticated | IsOwnerOfResourceOrReadOnly]
+    permission_classes = [IsOwnerOfResourceOrReadOnly]
 
 
     def get_queryset(self):
