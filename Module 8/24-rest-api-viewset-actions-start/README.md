@@ -85,7 +85,7 @@ from rest_framework import serializers
 class WorkoutDetailReadOnlySerializer(serializers.ModelSerializer):
     class Meta:
         model = Workout
-        fields = ['id', 'title', 'date', 'workout_logs']
+        fields = ['id', 'title', 'date', 'logs']
 
 # ... other serializers ...
 ```
