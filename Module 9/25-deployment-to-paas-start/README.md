@@ -163,6 +163,26 @@ git branch -M main
 git push -u origin main
 ```
 
+or use vs code git extension
+
+1. Initialize Git
+Click the Source Control icon (left sidebar)
+Click “Initialize Repository”
+
+2. Stage your files
+You’ll see a list of files.
+Click the “+” (stage all) button
+
+3. Commit your code
+Type a message like: Initial commit
+
+4.Publish to GitHub
+At the top, you’ll see: “Publish to GitHub”
+Click it
+Sign in if needed
+Choose:
+Public or Private
+
 This is public but since we don't have any sensitive information in our code (since we use environment variables for that) it's fine to have it public. In a real project you would want to make sure to keep your code private if it contains sensitive information.
 
 Note: you can change your github repo to private if you want to keep your code private, but for this example it's not necessary.
