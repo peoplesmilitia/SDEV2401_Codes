@@ -81,7 +81,7 @@ DATABASES = {
 }
 ```
 
-You can test this by taking a look at the shell and running the follwoing commands:
+You can test this by taking a look at the shell and running the follwoing commands: python manage.py shell and quit() to get out of shell.
 ```python
 from django.conf import settings
 print(settings.SECRET_KEY)
